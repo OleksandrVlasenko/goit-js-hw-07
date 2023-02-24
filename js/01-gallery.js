@@ -3,8 +3,6 @@ import { galleryItems } from "./gallery-items.js";
 
 const galleryEl = document.querySelector(".gallery");
 
-document.body.style.paddingRight = "calc(20px - (100vw - 100%))";
-
 // Створення і рендер розмітки на підставі масиву даних galleryItems і наданого шаблону елемента галереї.
 const markupForRendering = galleryItems
 	.map(({ preview, original, description }) => {
@@ -22,6 +20,11 @@ const markupForRendering = galleryItems
 	.join("");
 
 galleryEl.insertAdjacentHTML("beforeend", markupForRendering);
+
+// Динамічно вираховуємо ширину полоси прокрутки
+document.body.style.paddingRight = `calc(${
+	window.innerWidth - window.visualViewport.width
+}px - (100vw - 100%))`;
 
 // Реалізація делегування на div.gallery і отримання url великого зображення.
 galleryEl.addEventListener("click", onOpenModal);
@@ -52,7 +55,7 @@ function onOpenModal(event) {
 	function onCloseModalByClick() {
 		modal.close(() => bodyScrollLock.enableBodyScroll(document.body));
 		modal.element().removeEventListener("click", onCloseModalByClick);
-    document.removeEventListener("keyup", onCloseModal);
+		document.removeEventListener("keyup", onCloseModal);
 	}
 
 	// Закриття модального вікна і розблокування скролу сторінки по клавіші Escape
