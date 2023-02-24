@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Image gallery</title>
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <p><a href="index.html">Go back</a></p>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Image gallery</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
+		/>
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body>
+		<p><a href="index.html">Go back</a></p>
 
-    <!-- Add gallery items to this list -->
-    <div class="gallery"></div>
+		<!-- Add gallery items to this list -->
+		<div class="gallery"></div>
 
-    <script src="js/01-gallery.js" type="module"></script>
-  </body>
+		<script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+		<script type="module">
+			import basiclightbox from "https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/+esm";
+		</script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
+      integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
+      crossorigin="anonymous"
+    ></script>
+		<script src="js/01-gallery.js" type="module"></script>
+	</body>
 </html>
