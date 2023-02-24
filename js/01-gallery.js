@@ -52,6 +52,7 @@ function onOpenModal(event) {
 	function onCloseModalByClick() {
 		modal.close(() => bodyScrollLock.enableBodyScroll(document.body));
 		modal.element().removeEventListener("click", onCloseModalByClick);
+    document.removeEventListener("keyup", onCloseModal);
 	}
 
 	// Закриття модального вікна і розблокування скролу сторінки по клавіші Escape
@@ -60,6 +61,7 @@ function onOpenModal(event) {
 	function onCloseModal(event) {
 		if (event.code === "Escape") {
 			modal.close(() => bodyScrollLock.enableBodyScroll(document.body));
+			modal.element().removeEventListener("click", onCloseModalByClick);
 			document.removeEventListener("keyup", onCloseModal);
 		}
 	}
